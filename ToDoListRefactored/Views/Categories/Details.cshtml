@@ -16,15 +16,18 @@
 }
 else
 {
-    <h4>Items the category caontains:</h4>
+    <h4>Items the category contains:</h4>
     <ul>
 
     @foreach (Item item in Model.Items)
         {
-
+<li>@item.Description : @Html.ActionLink("Delete Item", "Delete", new { id = Model.Items.ItemId })
+</li>
         }
     </ul>
 }
+
+
 
 
 

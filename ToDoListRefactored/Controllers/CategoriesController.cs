@@ -32,6 +32,13 @@ namespace ToDoListRefactored.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult Details(int id)
+        {
+            Category thisCategory = _db.Categories
+                                        .Include(cat => cat.Items)
+                                        .FirstOrDefault(category => category.CategoryId == id);
+            return View(thisCategory);
+        }
         public ActionResult Edit(int id)
         {
             Category thisCategory = _db.Categories.FirstOrDefault(c => c.CategoryId == id);
@@ -45,6 +52,7 @@ namespace ToDoListRefactored.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
     }
 
 
