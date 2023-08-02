@@ -1,0 +1,27 @@
+@{
+    Layout = "_Layout";
+}
+
+@using ToDoListRefactored.Models;
+
+@model ToDoListRefactored.Models.Item;
+
+<h2>Update Item</h2>
+
+@using (Html.BeginForm())
+{
+    
+
+    @Html.HiddenFor(m => m.ItemId)
+
+    @Html.LabelFor(m => m.Description)
+    @Html.EditorFor(m => m.Description)
+
+    @Html.LabelFor(m => m.Category)
+    @Html.DropDownList("CategoryId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+
