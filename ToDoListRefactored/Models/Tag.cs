@@ -6,6 +6,6 @@ namespace ToDoListRefactored.Models
     {   
     public int TagId { get; set; }
     public string Title { get; set; }
-    public List<ItemTag> JoinEntites { get; }
+    public List<ItemTag> JoinEntities { get; }
     }
 }

@@ -1,0 +1,17 @@
+@{
+    Layout = "_Layout";
+}
+
+@model ToDoListRefactored.Models.Tag;
+
+@using (Html.BeginForm()){
+    @Html.HiddenFor(model => model.TagId)
+
+    @Html.LabelFor(model => model.Title)
+    @Html.EditorFor(model => model.Title)
+
+    <input type="submit" value="Edit tag" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+

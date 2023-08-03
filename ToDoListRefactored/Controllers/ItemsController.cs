@@ -33,7 +33,7 @@ namespace ToDoListRefactored.Controllers
         {
             _db.Items.Add(item);
             _db.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         public ActionResult Details(int id)
