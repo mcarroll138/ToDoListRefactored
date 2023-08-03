@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ToDoListRefactored.Models;
+using System.Linq;
 
 namespace ToDoListRefactored.Controllers
 {
@@ -54,6 +55,19 @@ namespace ToDoListRefactored.Controllers
         public ActionResult Edit(Item item)
         {
             _db.Items.Update(item);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(int id){
+            Item thisItem = _db.Items.FirstOrDefault(item => item.ItemId == id);
+            return View(thisItem);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id){
+            Item thisItem = _db.Items.FirstOrDefault(item => item.ItemId == id);
+            _db.Items.Remove(thisItem);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }

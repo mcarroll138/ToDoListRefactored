@@ -21,11 +21,17 @@ else
 
     @foreach (Item item in Model.Items)
         {
-<li>@item.Description : @Html.ActionLink("Delete Item", "Delete", new { id = Model.Items.ItemId })
+<li>@item.Description
 </li>
         }
     </ul>
 }
+
+@Html.ActionLink("Home", "Index", "Home")
+<br>
+@Html.ActionLink("Add Item", "Create", "Items")
+<br>
+@Html.ActionLink("Add Category", "Create", "Categories")
 
 
 
